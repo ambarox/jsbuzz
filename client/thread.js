@@ -1,5 +1,5 @@
-Session.set("postid", "");
-Session.set("user", Meteor.user().profile.name);
+Session.set("postid","");
+Session.set("user","User");
 
 //db.Posts.remove()
 //db.Comments.remove()
@@ -7,23 +7,22 @@ Session.set("user", Meteor.user().profile.name);
 
 //LIST THREADS
 Template.threads.helpers({
-    posts: function () {
-        return Posts.find({}, { sort: { time: -1 }});
+    posts : function () {
+	    return Posts.find({}, { sort: { time: -1 }});
     },
-    events: {
+    events : {
         'click .thread': function () {
 
             Session.set("postid", this._id);
 
 
         },
-        /*'click #remove-all-thread': function () {
+        'click #remove-all-thread':function(){
 
-         Posts.remove({});
-         return SomeOtherItems.remove({});
+            return Meteor.call('removePostsAndComments');
 
-         },*/
-        'keydown input#newpost': function (event) {
+        },
+        'keydown input#newpost':function(event){
             if (event.which == 13) { // 13 is the enter key event
 
                 //CHECK USER AUTHENTICATION
@@ -80,10 +79,10 @@ Template.postfull.helpers({
                 }
             }
         },
-        'click #remove-this-thread': function () {
-            Comments.remove({post_id: Session.get("postid")}, 1);
-            //Posts.remove(Session.get("postid"));
-            return true;
+        'click #remove-this-thread':function(){
+
+                //return Meteor.call('removePostsAndComments');
+
         }
     }
 
