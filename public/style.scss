@@ -131,19 +131,14 @@ header, .new-thread, .new-comment{
 	}
   }
 
-
-
   .threads{
-	position: absolute;
+	position: relative;
 	padding: 50px 0;
-	overflow: hidden;
-	overflow-x: auto;
-	max-height: 100%;
 	width: 100%;
 	height: 100%;
 	z-index: 1;
 
-	& > div {
+	.thread {
 	  border-bottom: 1px solid #ebebeb;
 	  padding: 10px;
 	  width: 100%;

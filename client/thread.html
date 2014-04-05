@@ -16,7 +16,6 @@
 			{{> threads }}
 
 			<!--ADD NEW THREAD-->
-			{{> input }}
 		</div>
 		<div class="post">
 
@@ -34,26 +33,29 @@
 <template name="threads">
 	<div class="threads">
 		{{#each posts}}
-			<div class="clickable"><strong>{{user}}:</strong> {{message}}</div>
+			<div class="thread"><strong>{{user}}:</strong> {{message}}</div>
 		{{/each}}
 	</div>
+	<div class="new-thread"><input type="text" placeholder="Add a post" id="newpost"></div>
 </template>
 
 <!--THREADS FORM-->
 <template name="input">
-	<div class="new-thread"><input type="text" placeholder="Add a post" id="newpost"></div>
+
 </template>
 
 <!--POST FULL-->
 <template name="postfull">
+	{{#each post}}
 	<article>
 		<div class="user"><img src="" alt=""/></div>
 		<div class="message">
-			<div class="user-name">Lakshitha Benaragama</div>
-			<p>Open sublimetext, try editing your style.css file, the css changes are automatically displayed on the browser page without saving anything.</p>
+			<div class="user-name">{{user}}</div>
+			<p>{{message}}</p>
 			<button class="btn btn-danger">Remove</button>
 		</div>
 	</article>
+	{{/each}}
 </template>
 
 <!--COMMENTS-->
