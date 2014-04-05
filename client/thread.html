@@ -1,11 +1,42 @@
 <head>
 	<title>Chat app</title>
+	<link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
 
 <body>
-<h1>Threads</h1>
-{{> input }}
-{{> post }}
+
+	<div class="wrapper">
+		<div class="posts">
+			<!--HEADER-->
+			<header>
+				<div class="h2">Threads</div>
+				<span></span></header>
+
+			<!--THREADS-->
+			<div class="threads">{{> post }}</div>
+
+			<!--ADD NEW THREAD-->
+			{{> input }}
+		</div>
+		<div class="post">
+			<article>
+				Open sublimetext, try editing your style.css file, the css changes are automatically displayed on the browser page without saving anything.
+				<button class="btn-red">Remove</button>
+			</article>
+			<div class="comments">
+				<div class="comment">
+					<div class="user"><img src="" alt=""/></div>
+					<div class="message">
+						<p>Sample Comments here..</p>
+						<div class="actions"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
 </body>
 
 <template name="post">
@@ -15,5 +46,5 @@
 </template>
 
 <template name="input">
-	<p><input type="text" placeholder="Add a post" id="newpost"></p>
+	<div class="new-thread"><input type="text" placeholder="Add a post" id="newpost"></div>
 </template>
