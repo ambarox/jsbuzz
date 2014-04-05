@@ -1,5 +1,6 @@
 Session.set("postid","");
 Session.set("user","User");
+Session.set("post-comments","");
 
 //db.Posts.remove()
 //db.Comments.remove()
@@ -17,12 +18,11 @@ Template.threads.helpers({
 
 
         },
-        /*'click #remove-all-thread': function () {
+        'click #remove-all-thread':function(){
 
-            Posts.remove({});
-            return SomeOtherItems.remove({});
+            return Meteor.call('removePostsAndComments');
 
-        },*/
+        },
         'keydown input#newpost':function(event){
             if (event.which == 13) { // 13 is the enter key event
 
@@ -81,9 +81,9 @@ Template.postfull.helpers({
             }
         },
         'click #remove-this-thread':function(){
-            Comments.remove({post_id: Session.get("postid")},1);
-            //Posts.remove(Session.get("postid"));
-            return true;
+
+                //return Meteor.call('removePostsAndComments');
+
         }
     }
 
