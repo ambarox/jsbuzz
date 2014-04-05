@@ -1,1 +1,1 @@
-Posts = new Meteor.Collection('comments');
+Posts = new Meteor.Collection('threads');

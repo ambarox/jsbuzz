@@ -13,7 +13,7 @@
 				<span></span></header>
 
 			<!--THREADS-->
-			<div class="threads">{{> threads }}</div>
+			{{> threads }}
 
 			<!--ADD NEW THREAD-->
 			{{> input }}
@@ -33,11 +33,21 @@
 				<div class="comment">
 					<div class="user"><img src="" alt=""/></div>
 					<div class="message">
+						<span>Prashath</span>
+						<p>Sample Comments here..</p>
+						<div class="actions"></div>
+					</div>
+				</div>
+				<div class="comment me">
+					<div class="user"><img src="" alt=""/></div>
+					<div class="message">
+						<span>Prashath</span>
 						<p>Sample Comments here..</p>
 						<div class="actions"></div>
 					</div>
 				</div>
 			</div>
+			<div class="new-comment"><input type="text" placeholder="Add a comment"/></div>
 
 		</div>
 	</div>
@@ -46,9 +56,11 @@
 </body>
 
 <template name="threads">
-	{{#each posts}}
-		<div class="clickable"><strong>{{user}}:</strong> {{message}}</div>
-	{{/each}}
+	<div class="threads">
+		{{#each posts}}
+			<div class="clickable"><strong>{{user}}:</strong> {{message}}</div>
+		{{/each}}
+	</div>
 </template>
 
 <template name="input">
