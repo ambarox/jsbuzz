@@ -1,9 +1,9 @@
 //LIST THREADS
-Template.posts = function () {
+Template.threads.posts = function () {
 	return Posts.find({}, { sort: { time: -1 }});
 }
 
-Template.post.events({
+Template.threads.events({
 	'click .clickable': function () {
 		Posts.update(this._id, {$inc: {
 			time: Date.now()
@@ -27,7 +27,7 @@ Template.input.events = {
 				//ADD DATA TO MONGODB
 				Posts.insert({
 					user: user,
-					content: newpost.value,
+                    message: newpost.value,
 					time: Date.now()
 				});
 
