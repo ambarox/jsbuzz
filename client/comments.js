@@ -1,12 +1,13 @@
 //LIST THREADS
-Template.posts = function () {
-	return Posts.find({}, { sort: { time: -1 }});
+Template.comment.comments = function () {
+	return Comments.find({}, { sort: { time: -1 }}); // @TODOD return comments for the specific id
 }
 
 Template.post.events({
 	'click .clickable': function () {
-		Posts.update(this._id, {$inc: {
+		Comments.update(this._id, {$inc: {
 			time: Date.now()
+			// @TODO attach comment with the thread
 		}});
 	}
 });
@@ -14,24 +15,24 @@ Template.post.events({
 
 //ADD NEW POST
 Template.input.events = {
-	'keydown input#newpost' : function (event) {
+	'keydown input#newcomment' : function (event) {
 		if (event.which == 13) { // 13 is the enter key event
 
 			//CHECK USER AUTHENTICATION
 			var user = 'User';
 
-			var newpost = document.getElementById('newpost');
+			var newcomment = document.getElementById('newcomment');
 
-			if (newpost.value != '') {
+			if (newcomment.value != '') {
 
 				//ADD DATA TO MONGODB
-				Posts.insert({
+				Comments.insert({
 					user: user,
-					content: newpost.value,
+					content: newcomment.value,
 					time: Date.now()
 				});
 
-				newpost.value = '';
+				newcomment.value = '';
 			}
 		}
 	}
