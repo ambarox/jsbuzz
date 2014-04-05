@@ -29,7 +29,7 @@ Template.input.events = {
                 //ADD DATA TO MONGODB
                 Posts.insert({
                     user: user,
-                    title: newpost.value,
+                    content: newpost.value,
                     time: Date.now()
                 });
 

@@ -41,10 +41,15 @@
 
 <template name="post">
 	{{#each posts}}
-		<div class="clickable"><strong>{{user}}:</strong> {{title}}</div>
+		<div class="clickable"><strong>{{user}}:</strong> {{content}}</div>
 	{{/each}}
 </template>
 
+<template name="comment">
+    {{#each comments}}
+    <div><strong>{{user}}:</strong> {{comment}}</div>
+    {{/each}}
+</template>
 <template name="input">
 	<div class="new-thread"><input type="text" placeholder="Add a post" id="newpost"></div>
 </template>
