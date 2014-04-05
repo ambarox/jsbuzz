@@ -5,9 +5,10 @@ Template.threads.posts = function () {
 
 Template.threads.events({
 	'click .clickable': function () {
-		Posts.update(this._id, {$inc: {
+		/*Posts.update(this._id, {$inc: {
 			time: Date.now()
-		}});
+		}});*/
+
 	}
 });
 
