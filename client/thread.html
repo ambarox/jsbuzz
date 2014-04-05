@@ -7,21 +7,12 @@
 
 	<div class="wrapper">
 		<div class="posts">
-			<!--HEADER-->
-			<header>
-				<h2>Threads</h2>
-				<span></span></header>
-
 			<!--THREADS-->
 			{{> threads }}
-
-			<!--ADD NEW THREAD-->
 		</div>
 		<div class="post">
 
 			{{> postfull }}
-			{{> postcomments }}
-			{{> newcomment }}
 
 		</div>
 	</div>
@@ -31,18 +22,22 @@
 
 <!--THREADS TEMPLATE-->
 <template name="threads">
+	<!--HEADER-->
+	<header>
+		<h2>Threads</h2>
+		<button class="btn bordered btn-white" id="remove-all-thread">Remove all</button></header>
+
+	<!--THREAD-->
 	<div class="threads">
 		{{#each posts}}
 			<div class="thread"><strong>{{user}}:</strong> {{message}}</div>
 		{{/each}}
 	</div>
+
+	<!--ADD NEW THREAD-->
 	<div class="new-thread"><input type="text" placeholder="Add a post" id="newpost"></div>
 </template>
 
-<!--THREADS FORM-->
-<template name="input">
-
-</template>
 
 <!--POST FULL-->
 <template name="postfull">
@@ -52,35 +47,23 @@
 		<div class="message">
 			<div class="user-name">{{user}}</div>
 			<p>{{message}}</p>
-			<button class="btn btn-danger">Remove</button>
+			<button class="btn btn-danger" id="remove-this-thread">Remove</button>
 		</div>
 	</article>
 	{{/each}}
-</template>
 
-<!--COMMENTS-->
-<template name="postcomments">
 	<div class="comments">
+		{{#each comments}}
 		<div class="comment">
 			<div class="user"><img src="" alt=""/></div>
 			<div class="message">
-				<span>Prashath</span>
-				<p>Sample Comments here..</p>
+				<span>{{user}}</span>
+				<p>{{comment}}</p>
 				<div class="actions"></div>
 			</div>
 		</div>
-		<div class="comment me">
-			<div class="user"><img src="" alt=""/></div>
-			<div class="message">
-				<span>Prashath</span>
-				<p>Sample Comments here..</p>
-				<div class="actions"></div>
-			</div>
-		</div>
+		{{/each}}
 	</div>
-</template>
 
-<!--ADD COMMENT-->
-<template name="newcomment">
 	<div class="new-comment"><input type="text" placeholder="Add a comment" id="newcomment"/></div>
 </template>

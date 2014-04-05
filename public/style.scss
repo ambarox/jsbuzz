@@ -45,6 +45,11 @@ body {
 	border-color: #ff3b30;
   }
 
+  &.btn-white {
+	color: white;
+	border-color: white;
+  }
+
 
 
 }
@@ -68,6 +73,7 @@ body {
   display: table-cell;
   height: 600px;
   position: relative;
+  vertical-align: top;
 }
 
 header, .new-thread, .new-comment{
@@ -128,6 +134,13 @@ header, .new-thread, .new-comment{
 	  position: relative;
 	  z-index: 1;
 	  font-weight: normal;
+	}
+	.btn {
+	  position: absolute;
+	  z-index: 2;
+	  right: 0;
+	  top: 12px;
+
 	}
   }
 
