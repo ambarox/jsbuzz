@@ -1,9 +1,17 @@
-/**
- * Templates
- */
+
+
+//LIST THREADS
 Template.post.posts = function () {
     return Posts.find({}, { sort: { time: -1 }});
 }
+
+Template.post.events({
+    'click .clickable': function () {
+        Posts.update(this._id, {$inc: {
+            time: Date.now()
+        }});
+    }
+});
 
 
 //ADD NEW POST

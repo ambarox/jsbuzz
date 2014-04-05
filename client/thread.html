@@ -3,14 +3,14 @@
 </head>
 
 <body>
-<h1>Chatapp</h1>
+<h1>Threads</h1>
 {{> input }}
 {{> post }}
 </body>
 
 <template name="post">
 	{{#each posts}}
-	<strong>{{user}}:</strong> {{title}}<br>
+		<div class="clickable"><strong>{{user}}:</strong> {{title}}</div>
 	{{/each}}
 </template>
 
