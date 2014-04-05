@@ -1,29 +1,31 @@
 /**
  * Templates
  */
-Template.messages.messages = function () {
-    return Messages.find({}, { sort: { time: -1 }});
+Template.post.posts = function () {
+    return Posts.find({}, { sort: { time: -1 }});
 }
 
 
+//ADD NEW POST
 Template.input.events = {
-    'keydown input#message' : function (event) {
+    'keydown input#newpost' : function (event) {
         if (event.which == 13) { // 13 is the enter key event
-            //if (Meteor.user())
-            //    var name = Meteor.user().profile.name;
-            //else
-            var name = 'Anonymous';
-            var message = document.getElementById('message');
 
-            if (message.value != '') {
-                Messages.insert({
-                    name: name,
-                    message: message.value,
+            //CHECK USER AUTHENTICATION
+            var user = 'User';
+
+            var newpost = document.getElementById('newpost');
+
+            if (newpost.value != '') {
+
+                //ADD DATA TO MONGODB
+                Posts.insert({
+                    user: user,
+                    title: newpost.value,
                     time: Date.now()
                 });
 
-                document.getElementById('message').value = '';
-                message.value = '';
+                newpost.value = '';
             }
         }
     }

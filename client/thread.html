@@ -5,15 +5,15 @@
 <body>
 <h1>Chatapp</h1>
 {{> input }}
-{{> messages }}
+{{> post }}
 </body>
 
-<template name="messages">
-	{{#each messages}}
-	<strong>{{name}}:</strong> {{message}}<br>
+<template name="post">
+	{{#each posts}}
+	<strong>{{user}}:</strong> {{title}}<br>
 	{{/each}}
 </template>
 
 <template name="input">
-	<p><input type="text" placeholder="Add a post" id="message"></p>
+	<p><input type="text" placeholder="Add a post" id="newpost"></p>
 </template>
