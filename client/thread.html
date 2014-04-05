@@ -3,25 +3,17 @@
 </head>
 
 <body>
-{{loginButtons align="right"}}<br>
 <h1>Chatapp</h1>
-{{> welcome }}
 {{> input }}
 {{> messages }}
 </body>
 
-<template name="welcome">
-	<p>
-		Welcome to the example chat app!
-	</p>
-</template>
-
-<template name="messages">
-	{{#each messages}}
-	<strong>{{name}}:</strong> {{message}}<br>
+<template name="posts">
+	{{#each posts}}
+	<strong>{{user}}:</strong> {{post}}<br>
 	{{/each}}
 </template>
 
 <template name="input">
-	<p>Message: <input type="text" id="message"></p>
+	<p><input type="text" placeholder="Add a post" id="message"></p>
 </template>
