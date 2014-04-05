@@ -1,4 +1,4 @@
 jsbuzz
 ======
 
-JSHackerthon Project
+Collabaration tool
