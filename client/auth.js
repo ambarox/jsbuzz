@@ -57,8 +57,8 @@ if (isProdEnv()) {
      });*/
     Accounts.loginServiceConfiguration.insert({
         service: 'google',
-        clientId: '11111',
-        secret: '11111'
+        appId: '898503452336',
+        secret: 'yNjwhgowUFPHjeS7n6WM_yLT'
     });
     /*Accounts.loginServiceConfiguration.insert({
      service: 'facebook',

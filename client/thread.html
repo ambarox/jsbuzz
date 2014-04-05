@@ -23,9 +23,10 @@
 	<!--HEADER-->
 	<header>
 		<h2>Threads</h2>
-		<button class="btn bordered btn-white" id="remove-all-thread">Remove all</button></header>
+        {{> loginButtons}}
+    </header>
 
-	<!--THREAD-->
+    <!--THREAD-->
 	<div class="threads">
 		{{#each posts}}
 			<div class="thread"><strong>{{user}}:</strong> {{message}}</div>

@@ -1,5 +1,5 @@
 Session.set("postid","");
-Session.set("user","User");
+Session.set("user", Meteor.user().profile.name);
 
 //db.Posts.remove()
 //db.Comments.remove()
