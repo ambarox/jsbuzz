@@ -19,35 +19,10 @@
 			{{> input }}
 		</div>
 		<div class="post">
-			<article>
-				<div class="user">
-					<img src="" alt=""/>
-				</div>
-				<div class="message">
-					<div class="user-name">Lakshitha Benaragama</div>
-					<p>Open sublimetext, try editing your style.css file, the css changes are automatically displayed on the browser page without saving anything.</p>
-					<button class="btn btn-danger">Remove</button>
-				</div>
-			</article>
-			<div class="comments">
-				<div class="comment">
-					<div class="user"><img src="" alt=""/></div>
-					<div class="message">
-						<span>Prashath</span>
-						<p>Sample Comments here..</p>
-						<div class="actions"></div>
-					</div>
-				</div>
-				<div class="comment me">
-					<div class="user"><img src="" alt=""/></div>
-					<div class="message">
-						<span>Prashath</span>
-						<p>Sample Comments here..</p>
-						<div class="actions"></div>
-					</div>
-				</div>
-			</div>
-			<div class="new-comment"><input type="text" placeholder="Add a comment"/></div>
+
+			{{> postfull }}
+			{{> postcomments }}
+			{{> newcomment }}
 
 		</div>
 	</div>
@@ -55,6 +30,7 @@
 
 </body>
 
+<!--THREADS TEMPLATE-->
 <template name="threads">
 	<div class="threads">
 		{{#each posts}}
@@ -63,6 +39,46 @@
 	</div>
 </template>
 
+<!--THREADS FORM-->
 <template name="input">
 	<div class="new-thread"><input type="text" placeholder="Add a post" id="newpost"></div>
+</template>
+
+<!--POST FULL-->
+<template name="postfull">
+	<article>
+		<div class="user"><img src="" alt=""/></div>
+		<div class="message">
+			<div class="user-name">Lakshitha Benaragama</div>
+			<p>Open sublimetext, try editing your style.css file, the css changes are automatically displayed on the browser page without saving anything.</p>
+			<button class="btn btn-danger">Remove</button>
+		</div>
+	</article>
+</template>
+
+<!--COMMENTS-->
+<template name="postcomments">
+	<div class="comments">
+		<div class="comment">
+			<div class="user"><img src="" alt=""/></div>
+			<div class="message">
+				<span>Prashath</span>
+				<p>Sample Comments here..</p>
+				<div class="actions"></div>
+			</div>
+		</div>
+		<div class="comment me">
+			<div class="user"><img src="" alt=""/></div>
+			<div class="message">
+				<span>Prashath</span>
+				<p>Sample Comments here..</p>
+				<div class="actions"></div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<!--ADD COMMENT-->
+<template name="newcomment">
+	<div class="new-comment"><input type="text" placeholder="Add a comment" id="newcomment"/></div>
 </template>
