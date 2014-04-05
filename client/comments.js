@@ -1,5 +1,5 @@
 //LIST THREADS
-Template..posts = function () {
+Template.posts = function () {
 	return Posts.find({}, { sort: { time: -1 }});
 }
 
