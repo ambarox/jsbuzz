@@ -1,4 +1,4 @@
 jsbuzz
 ======
 
-Collabaration tool
+Simple collaboration tool.
