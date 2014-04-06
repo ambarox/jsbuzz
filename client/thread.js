@@ -7,7 +7,7 @@ Session.set("postid","");
 //LIST THREADS
 Template.threads.helpers({
     posts : function () {
-	    return Posts.find({}, { sort: { time: -1 }});
+        return Posts.find({}, { sort: { time: -1 }});
     },
     events : {
         'click .thread': function () {
@@ -81,6 +81,23 @@ Template.postfull.helpers({
 
                 //return Meteor.call('removePostsAndComments');
 
+        },
+        'click .messagep':function(e){
+            var newcomment = document.getElementById(e.target);
+
+            e.target.setAttribute('contenteditable',true);
+
+            return true;
+        },
+        'focusout .messagep':function(e){
+            var newcomment = $(e.target).html();
+           // alert(Session.get("postid"))
+            e.target.setAttribute('contenteditable',false);
+//            Comments.update({_id:this._id},
+//                            {$addToSet: {comment: newcomment}}
+//                           );
+            Comments.update({_id: this._id}, {$set: {comment: newcomment}});
+            return true;
         }
     }
 
