@@ -43,6 +43,7 @@
 								<div class="user">{{user}}</div>
 								<time>{{timeago time}}</time>
 								{{message}}</div>
+
 						</div>
 					{{/each}}
 				</div>
@@ -70,7 +71,7 @@
 					    <span>{{user}}</span>
 				        <time class="pull-right">{{timeago time}}</time>
 				    </div>
-				    <p class="editable-post-message">{{message}}</p>
+				    <p class="{{#if checkuser email}}editable-post-message{{/if}}">{{message}}</p>
 			    </div>
 
 	    </article>
@@ -82,8 +83,10 @@
 	            <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
 	            <div class="message">
 	                <div class="username clearfix">{{shortName}} <time class="pull-right">{{timeago time}}</time></div>
-	                <div class="editable-message">{{comment}}</div>
-	                <div class="action"><button class="btn btn-danger deletecomment">Delete</button></div>
+	                <div class="{{#if checkuser email}}editable-message{{/if}}">{{comment}}</div>
+		            {{#if checkuser email}}
+		                <div class="action"><button class="btn btn-danger deletecomment">Delete</button></div>
+		            {{/if}}
 	            </div>
 	        </div>
 	        {{/each}}
