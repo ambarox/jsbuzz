@@ -1,4 +1,5 @@
-isProdEnv = function () {
+/*
+ isProdEnv = function () {
     if (process.env.ROOT_URL == "http://localhost:3000") {
         return false;
     } else {
@@ -10,6 +11,7 @@ Accounts.loginServiceConfiguration.remove({
     service: 'google'
 });
 
+ */
 /*Accounts.loginServiceConfiguration.remove({
  service: 'facebook'
  });
@@ -20,11 +22,13 @@ Accounts.loginServiceConfiguration.remove({
 
  Accounts.loginServiceConfiguration.remove({
  service: 'github'
- });*/
+ });*//*
 
-if (isProdEnv()) {
-    /*Accounts.loginServiceConfiguration.insert({
-     service: 'github',
+
+ if (isProdEnv()) {
+ */
+/*Accounts.loginServiceConfiguration.insert({
+ service: 'github',
      clientId: '00000',
      secret: '00000'
      });
@@ -32,21 +36,25 @@ if (isProdEnv()) {
      service: 'twitter',
      consumerKey: '00000',
      secret: '00000'
-     });*/
-    Accounts.loginServiceConfiguration.insert({
+ });*//*
+
+ Accounts.loginServiceConfiguration.insert({
         service: 'google',
         appId: '898503452336',
         secret: 'yNjwhgowUFPHjeS7n6WM_yLT'
     });
-    /*Accounts.loginServiceConfiguration.insert({
-     service: 'facebook',
+ */
+/*Accounts.loginServiceConfiguration.insert({
+ service: 'facebook',
      appId: '00000',
      secret: '00000'
-     });*/
-} else {
+ });*//*
+
+ } else {
     // dev environment
-    /*Accounts.loginServiceConfiguration.insert({
-     service: 'github',
+ */
+/*Accounts.loginServiceConfiguration.insert({
+ service: 'github',
      clientId: '11111',
      secret: '11111'
      });
@@ -54,18 +62,21 @@ if (isProdEnv()) {
      service: 'twitter',
      consumerKey: '11111',
      secret: '11111'
-     });*/
-    Accounts.loginServiceConfiguration.insert({
+ });*//*
+
+ Accounts.loginServiceConfiguration.insert({
         service: 'google',
         appId: '898503452336',
         secret: 'yNjwhgowUFPHjeS7n6WM_yLT'
     });
-    /*Accounts.loginServiceConfiguration.insert({
-     service: 'facebook',
+ */
+/*Accounts.loginServiceConfiguration.insert({
+ service: 'facebook',
      appId: '11111',
      secret: '11111'
-     });*/
-}
+ });*//*
+
+ }
 
 Accounts.onCreateUser(function (options, user) {
     if (user.services) {
@@ -125,4 +136,4 @@ Accounts.onCreateUser(function (options, user) {
         Meteor.users.remove({_id: existingUser._id}); // remove existing record
         return existingUser;              // record is re-inserted
     }
-});
+ });*/
