@@ -32,7 +32,7 @@
 			<!--HEADER-->
 				<header>
 					<h2>Conversation</h2>
-					<button class="btn bordered btn-white">DD</button>
+					<!--<button class="btn bordered btn-white">DD</button>-->
 			    </header>
 		    <!--THREAD-->
 				<div class="threads">
@@ -55,7 +55,21 @@
             {{> postfull }}
         </div>
     </div>
-{{/if}}
+
+
+
+
+
+	{{else}}
+
+		<div class="intro">
+			<div>JSBuzZ...</div>
+			No application is realtime. <br>
+			We're tring to minimize the delay.
+		</div>
+
+	{{/if}}
+
 </template>
 
 

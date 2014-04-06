@@ -5,11 +5,27 @@
   margin: 0;
   padding: 0; }
 
+
+
+html, body {
+  height: 100%; }
+
 body {
   padding: 0;
   margin: 0;
   background-color: #eee;
   font: 14px/1 'Fauna One', serif; }
+
+.intro {
+  font-size: 36px;
+  color: #34aadc;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 15%; }
+  .intro div {
+    margin-bottom: 40px;
+    font: 75px/1 'Special Elite', cursive;
+    color: #ff3636; }
 
 time {
   display: block;
@@ -135,10 +151,11 @@ header, .new-thread, .new-comment {
       right: 12px; }
   .posts .threads {
     position: relative;
-    padding: 50px 0;
+    margin: 50px 0;
     width: 100%;
+    max-height: 800px;
     overflow: hidden;
-    overflow-x: scroll;
+    overflow-y: auto;
     z-index: 1; }
     .posts .threads .thread {
       border-bottom: 1px dashed #f4f4f4;
@@ -222,7 +239,10 @@ header, .new-thread, .new-comment {
         margin: 8px 0;
         font-size: 16px; }
   .post .comments {
-    padding: 15px; }
+    padding: 15px;
+    max-height: 735px;
+    overflow: hidden;
+    overflow-y: auto; }
     .post .comments .comment {
       margin-bottom: 15px; }
       .post .comments .comment:before, .post .comments .comment:after {
@@ -311,6 +331,9 @@ header, .new-thread, .new-comment {
     right: 0;
     left: 0;
     top: 0; }
+    nav > div {
+      padding-left: 15px;
+      padding-right: 15px; }
 
   .wrapper {
     margin: 0; }

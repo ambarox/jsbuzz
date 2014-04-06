@@ -8,11 +8,31 @@ $them_color : #34aadc;
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   padding: 0;
   margin: 0;
   background-color: #eee;
   font: 14px/1 'Fauna One', serif;
+
+}
+
+.intro {
+  font-size:36px;
+  color: $them_color;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 15%;
+
+  div {
+	margin-bottom: 40px;
+	font:75px/1 'Special Elite', cursive;
+	color:#ff3636;
+	//text-shadow: -2px -2px 0 rgba(0,0,0,.2);
+  }
 }
 
 time {
@@ -198,10 +218,11 @@ header, .new-thread, .new-comment{
 
   .threads{
 	position: relative;
-	padding: 50px 0;
+	margin: 50px 0;
 	width: 100%;
+	max-height: 800px;
 	overflow: hidden;
-	overflow-x: scroll;;
+	overflow-y: auto;
 	z-index: 1;
 
 	.thread {
@@ -319,6 +340,9 @@ header, .new-thread, .new-comment{
 
   .comments{
 	padding: 15px;
+	max-height: 735px;
+	overflow: hidden;
+	overflow-y: auto;
 
 	.comment {
 	  @include clearfix();
@@ -447,6 +471,11 @@ header, .new-thread, .new-comment{
 	right: 0;
 	left: 0;
 	top: 0;
+
+	&> div {
+	  padding-left: 15px;
+	  padding-right: 15px;
+	}
   }
   .wrapper {
 	margin: 0;
