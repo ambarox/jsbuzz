@@ -86,7 +86,7 @@ Template.postfull.helpers({
             }
         },
         'click #remove-this-thread':function(){
-
+            Posts.remove(this._id);
                 //return Meteor.call('removePostsAndComments');
 
         },
@@ -118,6 +118,10 @@ Template.postfull.helpers({
             e.target.setAttribute('contenteditable',false);
             Posts.update({_id: this._id}, {$set: {message: newcomment}});
             return true;
+
+        },
+        'click .deletecomment':function(){
+            Comments.remove(this._id);
 
         }
     }
