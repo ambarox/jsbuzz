@@ -58,7 +58,7 @@
 <template name="postfull">
     {{#if currentUser}}
 	    {{#each post}}
-	    <article>
+	    <article style="background-image: url({{profileImage}})">
 	        <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
 	        <div class="message">
 	            <div class="user-name">{{user}}</div>
