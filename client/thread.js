@@ -101,6 +101,21 @@ Template.postfull.helpers({
             Comments.update({_id: this._id}, {$set: {comment: newcomment}});
             return true;
 
+        },
+        'click .editable-post-message':function(e){
+
+            var newcomment = document.getElementById(e.target);
+            e.target.setAttribute('contenteditable',true);
+            return true;
+
+        },
+        'focusout .editable-post-message':function(e){
+
+            var newcomment = $(e.target).text();
+            e.target.setAttribute('contenteditable',false);
+            Posts.update({_id: this._id}, {$set: {message: newcomment}});
+            return true;
+
         }
     }
 
