@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Fauna+One|Special+Elite);
-
 $them_color : #34aadc;
 
 * {
@@ -17,6 +15,18 @@ body {
   font: 14px/1 'Fauna One', serif;
 }
 
+time {
+  display: block;
+  color: #ccc;
+  margin-bottom: 8px;
+  font-size: 12px;
+
+  &.pull-right {
+	width: auto;
+	margin-bottom: 0;
+  }
+}
+
 @mixin clearfix(){
 
   &:before, &:after {
@@ -27,6 +37,14 @@ body {
   &:after{
 	clear: both;
   }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+.pull-right {
+  float: right;
 }
 
 //COMPONENTS
@@ -220,11 +238,7 @@ header, .new-thread, .new-comment{
 		  margin-bottom: 5px;
 		}
 
-		time {
-		  display: block;
-		  color: #ccc;
-		  margin-bottom: 8px;
-		}
+
 
 	  }
 
@@ -290,6 +304,7 @@ header, .new-thread, .new-comment{
 		font-weight: bold;
 		color: #007aff;
 		font-size: 14px;
+		height: 18px;
 		padding-bottom: 5px;
 		border-bottom: 1px dashed rgba(0,0,0,.2);
 	  }
@@ -332,11 +347,15 @@ header, .new-thread, .new-comment{
 		border-radius: 10px;
 		position: relative;
 
-		span {
-		  display: block;
+		.username {
 		  color: darken($them_color, 15%);
 		  margin-bottom: 8px;
 		  font-size: 14px;
+		  height:14px;
+
+		  time {
+			color: rgba(0,0,0,.4);
+		  }
 		}
 
 		.editable-message {
@@ -353,6 +372,10 @@ header, .new-thread, .new-comment{
 		  border-bottom: 5px solid transparent;
 		  border-top: 5px solid transparent;
 		}
+	  }
+
+	  .action {
+		text-align: right;
 	  }
 
 	  &.me {
