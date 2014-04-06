@@ -1,8 +1,4 @@
 Session.set("postid","");
-if(Meteor.user()){
-    Session.set("user", Meteor.user().profile.name);
-}
-
 
 //db.Posts.remove()
 //db.Comments.remove()
@@ -17,6 +13,7 @@ Template.threads.helpers({
         'click .thread': function () {
 
             Session.set("postid", this._id);
+
 
         },
         'click #remove-all-thread':function(){
@@ -35,7 +32,7 @@ Template.threads.helpers({
 
                     //ADD DATA TO MONGODB
                     Posts.insert({
-                        user: Session.get("user"),
+                        user: Meteor.user().profile.name,
                         message: newpost.value,
                         time: Date.now()
                     });

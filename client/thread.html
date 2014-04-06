@@ -33,7 +33,7 @@
 	<header>
 		<h2>Conversation</h2>
     </header>
-
+    {{#if currentUser}}
     <!--THREAD-->
 	<div class="threads">
 		{{#each posts}}
@@ -48,29 +48,33 @@
 
 <!--POST FULL-->
 <template name="postfull">
-	{{#each post}}
-		<article>
-			<div class="user"><img src="" alt=""/></div>
-			<div class="message">
-				<div class="user-name">{{user}}</div>
-				<p>{{message}}</p>
-				<button class="btn btn-danger" id="remove-this-thread">Remove</button>
-			</div>
-		</article>
-	{{/each}}
+    {{#if currentUser}}
+    {{#each post}}
+    <article>
+        <div class="user"><img src="" alt=""/></div>
+        <div class="message">
+            <div class="user-name">{{user}}</div>
+            <p>{{message}}</p>
+            <button class="btn btn-danger" id="remove-this-thread">Remove</button>
+        </div>
+    </article>
+    {{/each}}
 
-	<div class="comments">
-		{{#each comments}}
-			<div class="comment">
-				<div class="user"><img src="" alt=""/></div>
-				<div class="message">
-					<span>{{user}}</span>
-					<p>{{comment}}</p>
-					<div class="actions"></div>
-				</div>
-			</div>
-		{{/each}}
-	</div>
+    <div class="comments">
+        {{#each comments}}
+        <div class="comment">
+            <div class="user"><img src="" alt=""/></div>
+            <div class="message">
+                <span>{{user}}</span>
 
-	<div class="new-comment"><input type="text" placeholder="Add a comment" id="newcomment"/></div>
+                <p>{{comment}}</p>
+
+                <div class="actions"></div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="new-comment"><input type="text" placeholder="Add a comment" id="newcomment"/></div>
+    {{/if}}
 </template>
