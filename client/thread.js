@@ -14,6 +14,8 @@ Template.threads.helpers({
 
             Session.set("postid", this._id);
 
+            $(".wrapper").removeClass("posts-only")
+
         },
         'click #remove-all-thread':function(){
 
@@ -82,22 +84,20 @@ Template.postfull.helpers({
                 //return Meteor.call('removePostsAndComments');
 
         },
-        'click .messagep':function(e){
+        'click .editable-message':function(e){
+
             var newcomment = document.getElementById(e.target);
-
             e.target.setAttribute('contenteditable',true);
-
             return true;
+
         },
-        'focusout .messagep':function(e){
-            var newcomment = $(e.target).html();
-           // alert(Session.get("postid"))
+        'focusout .editable-message':function(e){
+
+            var newcomment = $(e.target).text();
             e.target.setAttribute('contenteditable',false);
-//            Comments.update({_id:this._id},
-//                            {$addToSet: {comment: newcomment}}
-//                           );
             Comments.update({_id: this._id}, {$set: {comment: newcomment}});
             return true;
+
         }
     }
 

@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Fauna+One|Special+Elite);
 
+$them_color : #34aadc;
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -33,12 +35,12 @@ body {
   background: transparent;
   font-size: 14px;
   font-weight: normal;
-  color: #007aff;
+  color: $them_color;
   border-radius:5px;
   border: none;
 
   &.bordered{
-	border: 1px solid #007aff;
+	border: 1px solid $them_color;
 	padding: 4px 8px;
   }
 
@@ -60,22 +62,52 @@ body {
 
 //STRUCTURE
 
-.wrapper {
-  width: 100%;
-  max-width: 1000px;
-  margin: 20px auto;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0,0,0,.2);
-  display: table;
-  background-color: white;
-  border-radius: 5px;
-}
+nav	{
+  background-color: $them_color;
+  > div {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 10px 0 6px;
+	@include clearfix();
 
-.posts, .post {
-  display: table-cell;
-  height: 600px;
-  position: relative;
-  vertical-align: top;
+	.brand {
+	  float: left;
+	  color: white;
+	  font:28px/1 'Special Elite', cursive;
+	  padding-top: 5px;
+	}
+
+	.login {
+	  float: right;
+	  color: white !important;
+	}
+
+	.login-button {
+	  border-color: rgba(255,255,255,.5) !important;
+	  color: rgba(255,255,255,.5) !important;
+	  background: transparent!important;
+
+	  &:hover {
+		border-color: rgba(0,0,0,.5) !important;
+		background: #{darken($them_color, 13%)} !important;
+		color:white !important;
+	  }
+
+
+	  &#login-buttons-google {
+		border-color: black !important;
+		color: rgba(255,255,255,1) !important;
+		background: #ff2d55 !important;
+
+		&:hover {
+		  border-color: rgba(0,0,0,1) !important;
+		  background: #{darken(#ff2d55, 13%)} !important;
+		  color:white !important;
+		}
+	  }
+	}
+  }
 }
 
 header, .new-thread, .new-comment{
@@ -117,15 +149,23 @@ header, .new-thread, .new-comment{
   }
 }
 
+.posts, .post {
+  display: table-cell;
+  height: 600px;
+  position: relative;
+  vertical-align: top;
+  transition: all ease 300ms;
+}
+
 .posts {
-  width: 400px;
+  width: 40%;
   border-right: 1px solid #ebebeb;
   box-shadow: 0 0 3px rgba(0,0,0,.1);
   z-index: 2;
 
   header {
 	top: 0;
-	background-color: #007aff;
+	background-color: lighten($them_color, 15%);
 	color: white;
 	h2 {
 	  height: 50px;
@@ -156,16 +196,50 @@ header, .new-thread, .new-comment{
 	z-index: 1;
 
 	.thread {
-	  border-bottom: 1px solid #ebebeb;
-	  padding: 10px;
-	  width: 100%;
+	  border-bottom: 1px dashed #f4f4f4;
+	  margin: 0 15px;
+	  padding:15px 0;
+	  @include clearfix();
+
+	  .avatar {
+		float: left;
+
+		&, img {
+		  border-radius: 50%;
+		  width: 70px;
+		  height: 70px;
+		  box-sizing: content-box;
+		}
+
+		img {
+		  background-color: #ccc;
+		}
+
+	  }
+
+	  .message {
+		margin-left: 85px;
+
+		.user {
+		  color: $them_color;
+		  margin-bottom: 5px;
+		}
+
+		time {
+		  display: block;
+		  color: #ccc;
+		  margin-bottom: 8px;
+		}
+
+	  }
+
 	}
   }
 
 }
 
 .post {
-  width: 600px;
+  width: 60%;
   z-index: 1;
   background-color: #fafafa;
   position: relative;
@@ -233,25 +307,29 @@ header, .new-thread, .new-comment{
 	  .message {
 		padding: 10px;
 		margin: 0 50px;
-		background-color: lighten(#34aadc, 10%);
-		color: white;
+		background-color: lighten($them_color, 30%);
+		color: #555;
 		border-radius: 10px;
 		position: relative;
 
 		span {
 		  display: block;
-		  font-weight: bold;
-		  color: white;
+		  color: darken($them_color, 15%);
+		  margin-bottom: 8px;
+		  font-size: 14px;
+		}
+
+		.editable-message {
+		  font-style:italic;
 		}
 
 		&:after{
 		  position: absolute;
 		  display: block;
 		  left: -8px;
-		  top:50%;
-		  margin-top: -5px;
+		  top:15px;
 		  content: " ";
-		  border-right:8px solid #{lighten(#34aadc, 10%)};
+		  border-right:8px solid #{lighten($them_color, 30%)};
 		  border-bottom: 5px solid transparent;
 		  border-top: 5px solid transparent;
 		}
@@ -262,7 +340,7 @@ header, .new-thread, .new-comment{
 		  float: right;
 		}
 		.message {
-		  color: black;
+		  //color: black;
 		  background-color: #eee;
 		  &:after {
 			border-right:none;
@@ -274,7 +352,7 @@ header, .new-thread, .new-comment{
 		  text-align: right;
 
 		  span{
-			color: #007aff;
+			color: $them_color;
 		  }
 		}
 	  }
@@ -282,50 +360,26 @@ header, .new-thread, .new-comment{
   }
 }
 
-nav	{
-  background-color: #5856d6;
-  > div {
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 10px 0 6px;
-	@include clearfix();
 
-	.brand {
-	  float: left;
-	  color: white;
-	  font:28px/1 'Special Elite', cursive;
-	  padding-top: 5px;
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0,0,0,.2);
+  display: table;
+  background-color: white;
+  border-radius: 5px;
+
+  &.posts-only {
+
+	.post {
+	  display: none;
 	}
 
-	.login {
-	  float: right;
-	  color: white !important;
+	.posts {
+	  width: 100%;
 	}
 
-	.login-button {
-	  border-color: rgba(255,255,255,.5) !important;
-	  color: rgba(255,255,255,.5) !important;
-	  background: transparent!important;
-
-	  &:hover {
-		border-color: rgba(0,0,0,.5) !important;
-		background: #{darken(#5856d6, 13%)} !important;
-		color:white !important;
-	  }
-
-
-	  &#login-buttons-google {
-		border-color: black !important;
-		color: rgba(255,255,255,1) !important;
-		background: #ff2d55 !important;
-
-		&:hover {
-		  border-color: rgba(0,0,0,1) !important;
-		  background: #{darken(#ff2d55, 13%)} !important;
-		  color:white !important;
-		}
-	  }
-	}
   }
 }
