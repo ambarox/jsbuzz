@@ -14,7 +14,6 @@ Template.threads.helpers({
 
             Session.set("postid", this._id);
 
-
         },
         'click #remove-all-thread':function(){
 
@@ -68,7 +67,7 @@ Template.postfull.helpers({
 
                     //ADD DATA TO MONGODB
                     Comments.insert({
-                        user: Session.get("user"),
+                        user: Meteor.user().profile.name,
                         post_id : Session.get("postid"),
                         comment: newcomment.value,
                         time: Date.now()
