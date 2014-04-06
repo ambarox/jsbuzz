@@ -247,6 +247,20 @@ header, .new-thread, .new-comment{
 	background-size: cover;
 	@include clearfix();
 	overflow: hidden;
+	position:relative;
+
+	& > div {
+	  position: absolute;
+	  z-index: 1;
+	  top:0; left: 0; right:0; bottom:0;
+	  background-color: rgba(255,255,255,.9);
+	}
+
+	.user, .message {
+	  position: relative;
+	  z-index: 2;
+	  background-color: transparent;
+	}
 
 	.user {
 	  width: 90px;
@@ -257,7 +271,6 @@ header, .new-thread, .new-comment{
 		height: 90px;
 		width: 90px;
 		border:none;
-		background-color: #f4f4f4;
 		border-radius: 5px;
 		overflow: hidden;
 		transition:all 300ms ease;
@@ -278,11 +291,11 @@ header, .new-thread, .new-comment{
 		color: #007aff;
 		font-size: 14px;
 		padding-bottom: 5px;
-		border-bottom: 1px dashed #fbfbfb;
+		border-bottom: 1px dashed rgba(0,0,0,.2);
 	  }
 	  
 	  p {
-		margin-bottom: 8px;
+		margin: 8px 0;
 		font-size:16px;
 	  }
 	}

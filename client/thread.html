@@ -1,6 +1,7 @@
 <head>
-	<title>Chat app</title>
+	<title>JSBuzZ...</title>
 	<link rel="stylesheet" type="text/css" href="/style.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -59,12 +60,14 @@
     {{#if currentUser}}
 	    {{#each post}}
 	    <article style="background-image: url({{profileImage}})">
-	        <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
-	        <div class="message">
-	            <div class="user-name">{{user}}</div>
-	            <p>{{message}}</p>
-	            <!--<button class="btn btn-danger" id="remove-this-thread">Remove</button>-->
-	        </div>
+		    <div></div>
+			    <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
+			    <div class="message">
+				    <div class="user-name">{{user}}</div>
+				    <p>{{message}}</p>
+				    <!--<button class="btn btn-danger" id="remove-this-thread">Remove</button>-->
+			    </div>
+
 	    </article>
 	    {{/each}}
 
