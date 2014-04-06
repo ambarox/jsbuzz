@@ -1,21 +1,21 @@
 <head>
-    <title>Chat app</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" />
+	<title>Chat app</title>
+	<link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
 
 <body>
 
 <nav>
-    <div>
-        <div class="brand">JSBuzZ...</div>
-        <div class="login">{{> loginButtons}}</div>
-    </div>
+	<div>
+		<div class="brand">JSBuzZ...</div>
+		<div class="login">{{> loginButtons}}</div>
+	</div>
 </nav>
 
 
 
-        <!--THREADS-->
-        {{> threads }}
+		<!--THREADS-->
+		{{> threads }}
 
 
 </body>
@@ -23,24 +23,25 @@
 <!--THREADS TEMPLATE-->
 <template name="threads">
 {{#if currentUser}}
-    <div class="wrapper posts-only">
-        <div class="posts">
-            <!--HEADER-->
-                <header>
-                    <h2>Conversation</h2>
-                </header>
-            <!--THREAD-->
-                <div class="threads">
-                    {{#each posts}}
-                        <div class="thread">
-                            <div class="avatar"><img src="{{profileImage}}" alt=""/></div>
-                            <div class="message">
-                                <div class="user">{{user}}</div>
-                                <time>{{time}}</time>
-                                {{message}}</div>
-                        </div>
-                    {{/each}}
-                </div>
+	<div class="wrapper posts-only">
+		<div class="posts">
+			<!--HEADER-->
+				<header>
+					<h2>Conversation</h2>
+					<button class="btn bordered btn-white">DD</button>
+			    </header>
+		    <!--THREAD-->
+				<div class="threads">
+					{{#each posts}}
+						<div class="thread">
+							<div class="avatar"><img src="{{profileImage}}" alt=""/></div>
+							<div class="message">
+								<div class="user">{{user}}</div>
+								<time>{{time}}</time>
+								{{message}}</div>
+						</div>
+					{{/each}}
+				</div>
 
             <!--ADD NEW THREAD-->
                 <div class="new-thread"><input type="text" placeholder="Share what you're thinking..." id="newpost"></div>
@@ -56,32 +57,30 @@
 <!--POST FULL-->
 <template name="postfull">
     {{#if currentUser}}
-    {{#each post}}
-    <article>
-        <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
-        <div class="message">
-            <div class="user-name">{{user}}</div>
-            <p class="editable-post-message">{{message}}</p>
-            <button class="btn btn-danger" id="remove-this-thread">Remove</button>
-        </div>
-    </article>
-    {{/each}}
+	    {{#each post}}
+	    <article>
+	        <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
+	        <div class="message">
+	            <div class="user-name">{{user}}</div>
+	            <p>{{message}}</p>
+	            <!--<button class="btn btn-danger" id="remove-this-thread">Remove</button>-->
+	        </div>
+	    </article>
+	    {{/each}}
 
-    <div class="comments">
-        {{#each comments}}
-        <div class="comment">
-            <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{shortName}}"/></div>
-            <div class="message">
-                <span>{{shortName}}</span>
+	    <div class="comments">
+	        {{#each comments}}
+	        <div class="comment">
+	            <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
+	            <div class="message">
+	                <span>{{shortName}}</span>
+	                <div class="editable-message">{{comment}}</div>
+	                <div class="actions"></div>
+	            </div>
+	        </div>
+	        {{/each}}
+	    </div>
 
-                <div class="editable-message">{{comment}}</div>
-
-                <div class="actions"></div>
-            </div>
-        </div>
-        {{/each}}
-    </div>
-
-    <div class="new-comment"><input type="text" placeholder="Add a comment" id="newcomment"/></div>
+	    <div class="new-comment"><input type="text" placeholder="Add a comment" id="newcomment"/></div>
     {{/if}}
 </template>
