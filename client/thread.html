@@ -58,7 +58,7 @@
     {{#if currentUser}}
     {{#each post}}
     <article>
-        <div class="user"><img src="" alt=""/></div>
+        <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
         <div class="message">
             <div class="user-name">{{user}}</div>
             <p>{{message}}</p>
@@ -70,7 +70,7 @@
     <div class="comments">
         {{#each comments}}
         <div class="comment">
-            <div class="user"><img src="" alt=""/></div>
+            <div class="user"><img src="{{profileImage}}" alt="Profile Picture of {{user}}"/></div>
             <div class="message">
                 <span>{{user}}</span>
 

@@ -35,7 +35,9 @@ Template.threads.helpers({
                     Posts.insert({
                         user: Meteor.user().profile.name,
                         message: newpost.value,
-                        time: Date.now()
+                        time: Date.now(),
+                        id: Meteor.user()._id,
+                        profileImage: Meteor.user().services.google.picture
                     });
 
                     newpost.value = '';
@@ -72,7 +74,8 @@ Template.postfull.helpers({
                         user: Meteor.user().profile.name,
                         post_id : Session.get("postid"),
                         comment: newcomment.value,
-                        time: Date.now()
+                        time: Date.now(),
+                        profileImage: Meteor.user().services.google.picture
                     });
 
                     newcomment.value = '';
