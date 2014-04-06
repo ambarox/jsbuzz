@@ -5,15 +5,24 @@
 
 <body>
 
-	<div class="wrapper">
-		<div class="posts">
-			<!--THREADS-->
-			{{> threads }}
-		</div>
-		<div class="post">
-			{{> postfull }}
-		</div>
+<nav>
+	<div>
+		<div class="brand">JSBuzZ</div>
+		<div class="login">{{> loginButtons}}</div>
 	</div>
+</nav>
+
+
+
+<div class="wrapper">
+	<div class="posts">
+		<!--THREADS-->
+		{{> threads }}
+	</div>
+	<div class="post">
+		{{> postfull }}
+	</div>
+</div>
 
 
 </body>
@@ -22,8 +31,7 @@
 <template name="threads">
 	<!--HEADER-->
 	<header>
-		<h2>Threads</h2>
-        {{> loginButtons}}
+		<h2>Conversation</h2>
     </header>
 
     <!--THREAD-->
@@ -34,7 +42,7 @@
 	</div>
 
 	<!--ADD NEW THREAD-->
-	<div class="new-thread"><input type="text" placeholder="Add a post" id="newpost"></div>
+	<div class="new-thread"><input type="text" placeholder="Share what you're thinking..." id="newpost"></div>
 </template>
 
 

@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Fauna+One|Special+Elite|Aclonica);
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -9,7 +10,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #eee;
-  font: 14px/1 "Helvetic Neue", Helvetica, Arial; }
+  font: 14px/1 'Fauna One', serif; }
 
 .btn {
   text-align: center;
@@ -195,3 +196,40 @@ header, .new-thread, .new-comment {
           left: auto; }
         .post .comments .comment.me .message span {
           color: #007aff; }
+
+nav {
+  background-color: #5856d6; }
+  nav > div {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 0 6px; }
+    nav > div:before, nav > div:after {
+      content: ' ';
+      display: table; }
+    nav > div:after {
+      clear: both; }
+    nav > div .brand {
+      float: left;
+      color: white;
+      font: 28px/1 'Special Elite', cursive;
+      padding-top: 5px; }
+    nav > div .login {
+      float: right;
+      color: white !important; }
+    nav > div .login-button {
+      border-color: rgba(255, 255, 255, 0.5) !important;
+      color: rgba(255, 255, 255, 0.5) !important;
+      background: transparent !important; }
+      nav > div .login-button:hover {
+        border-color: rgba(0, 0, 0, 0.5) !important;
+        background: #302ebc !important;
+        color: white !important; }
+      nav > div .login-button#login-buttons-google {
+        border-color: black !important;
+        color: white !important;
+        background: #ff2d55 !important; }
+        nav > div .login-button#login-buttons-google:hover {
+          border-color: black !important;
+          background: #ea002d !important;
+          color: white !important; }

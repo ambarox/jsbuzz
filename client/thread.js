@@ -1,5 +1,8 @@
 Session.set("postid","");
-Session.set("user", Meteor.user().profile.name);
+if(Meteor.user()){
+    Session.set("user", Meteor.user().profile.name);
+}
+
 
 //db.Posts.remove()
 //db.Comments.remove()
@@ -14,7 +17,6 @@ Template.threads.helpers({
         'click .thread': function () {
 
             Session.set("postid", this._id);
-
 
         },
         'click #remove-all-thread':function(){
@@ -47,18 +49,18 @@ Template.threads.helpers({
 
 
 Template.postfull.helpers({
-    post: function () {
-        if (Session.get("postid")) {
-            return Posts.find({_id: Session.get("postid")});
+    post : function(){
+        if(Session.get("postid")){
+            return Posts.find({_id : Session.get("postid")});
         }
     },
-    comments: function () {
-        if (Session.get("postid")) {
-            return Comments.find({post_id: Session.get("postid")});
+    comments : function(){
+        if(Session.get("postid")){
+            return Comments.find({post_id : Session.get("postid")});
         }
     },
-    events: {
-        'keydown input#newcomment': function (event) {
+    events : {
+        'keydown input#newcomment':function(event){
             if (event.which == 13) { // 13 is the enter key event
 
                 //CHECK USER AUTHENTICATION
@@ -70,7 +72,7 @@ Template.postfull.helpers({
                     //ADD DATA TO MONGODB
                     Comments.insert({
                         user: Session.get("user"),
-                        post_id: Session.get("postid"),
+                        post_id : Session.get("postid"),
                         comment: newcomment.value,
                         time: Date.now()
                     });
