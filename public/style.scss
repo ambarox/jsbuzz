@@ -197,9 +197,13 @@ header, .new-thread, .new-comment{
 
 	.thread {
 	  border-bottom: 1px dashed #f4f4f4;
-	  margin: 0 15px;
-	  padding:15px 0;
+	  padding:15px;
+	  cursor:pointer;
 	  @include clearfix();
+
+	  &:hover {
+		background-color: #fafafa;
+	  }
 
 	  .avatar {
 		float: left;
